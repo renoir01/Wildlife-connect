@@ -1,6 +1,8 @@
 WildlifeConnect
+
 Table of Contents
 •	Description
+
 •	Problem Statement
 •	Proposed Solution
 •	Functional and Non-Functional Requirements
