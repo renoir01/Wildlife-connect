@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="wildlife, parks, conservation, travel" />
+  <meta name="description" content="WildlifeConnect: Connect with Wildlife Parks and Conservation Areas" />
+  <meta name="author" content="WildlifeConnect" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png'  %}" type="image/png">
+
+  <title>WildlifeConnect</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.scss' %}">
+  <style>
+    body, .navbar-nav a, .park_item h4, .park_item p, footer {
+    color: white;
+  }
+</style>
+  
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <div class="hero_bg_box">
+    <img src="{% static 'images/hero-bg.png' %}" alt="WildlifeConnect Team">
+  </div>
+
+    <!-- Header section starts -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="home.html">
+            <span>WildlifeConnect</span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'core:home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:parks' %}">Parks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:booking'%}">Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:community' %}">Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:donate' %}">Donate</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:events' %}">Events</a>
+              </li>
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:upload_report' %}">Document Upload</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:view_reports' %}">Report Posted</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
+              </li>
+              <div>
+                <form id="logout-form" method="post" action="{% url 'core:logout' %}" style="display: none;">
+                  {% csrf_token %}
+                </form>
+              </div>
+              <div id="app">
+              <li class="nav-item">
+                <form class="form-inline" action="search_results.html" method="get">
+                  <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                  <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+<!-- Donate form section -->
+<section class="donate_form_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Donate Now</h2>
+      <p>Your donation helps us protect wildlife and their habitats.</p>
+    </div>
+    <form id="donationForm" method="post" action="{% url 'core:donate' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Donation Amount:</label>
+        <input type="number" class="form-control" id="amount" name="amount" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Donate</button>
+    </form>
+    <div id="thankYouMessage" style="display: none;">
+      <h3>Thank you for your support!</h3>
+      <p>Your donation is greatly appreciated.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer section -->
+<footer class="footer_section">
+  <div class="container">
+    <p>&copy; <span id="displayYear"></span> All Rights Reserved By <a href="https://wildlifeconnect.org">WildlifeConnect</a></p>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('donationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting the traditional way
+      this.style.display = 'none'; // Hide the form
+      document.getElementById('thankYouMessage').style.display = 'block'; // Show the thank you message
+    });
+
+    // Set the current year in the footer
+    document.getElementById('displayYear').textContent = new Date().getFullYear();
+  });
+</script>
+

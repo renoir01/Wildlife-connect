@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body, .navbar-nav a, .park_item h4, .park_item p, footer {
+        color: white;
+      }
+      .header_section {
+        background-color: #007bff; /* Bootstrap's primary blue color */
+        padding: 1rem; /* Adjust padding as needed */
+    }
+    
+    .custom_nav-container {
+        background-color: #007bff; /* Match the header background color */
+    }
+    
+    /* Optional: Adjust text color if needed */
+    .header_section .navbar-brand span {
+        color: #ffffff; /* White color for text */
+    }
+    </style> 
+</head>
+<body>
+    
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="home.html">
+            <span>WildlifeConnect</span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </header>
+    <div class="hero_area">
+        <div class="hero_bg_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="WildlifeConnect Team">
+      </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mt-5">Login</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="mt-3">
+                    <a href="{% url 'core:signup' %}">Sign Up</a> | 
+                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

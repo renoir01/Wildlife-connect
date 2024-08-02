@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="wildlife, parks, conservation, logout" />
+  <meta name="description" content="Logout from WildlifeConnect" />
+  <meta name="author" content="WildlifeConnect" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+  <title>Logout - WildlifeConnect</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+<body>
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{% url 'core:home' %}">
+          <span>WildlifeConnect</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="logout_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>Logout</h2>
+        <p>You have been logged out successfully</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="form_container">
+            <form action="{% url 'core:login' %}" method="get">
+              {% csrf_token %}
+              <div class="btn_box">
+                <button type="submit">Login Again</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer_section">
+    <div class="container">
+      <div class="footer_logo">
+        <a href="{% url 'core:home' %}">
+          <span>WildlifeConnect</span>
+        </a>
+      </div>
+      <div class="footer_social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+      </div>
+      <div class="footer_bottom">
+        <p>&copy; 2024 WildlifeConnect. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
+  
