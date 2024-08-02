@@ -1,80 +1,87 @@
 WildlifeConnect
-WildlifeConnect is a web application designed to facilitate wildlife conservation by providing a centralized platform for users to report sightings, engage with the community, and manage conservation efforts.
-
 Table of Contents
-Features
-Requirements
-Installation
-Configuration
-Usage
-Contributing
+•	Description
+•	Problem Statement
+•	Proposed Solution
+•	Functional and Non-Functional Requirements
+•	Actors and Processes
+•	Setup Instructions
+•	Usage
+•	Contributing
+•	License
+Description
+WildlifeConnect is a web application designed to facilitate the connection between wildlife enthusiasts, researchers, and volunteers. It provides a platform for users to report wildlife sightings, book visits to parks, participate in community forums, and more.
+Problem Statement
+What is the problem?
+Wildlife conservation efforts are often fragmented, with limited collaboration between volunteers, researchers, and tourists. This fragmentation leads to inefficiencies and missed opportunities for meaningful contributions.
+Why is it a problem?
+- Lack of centralized reporting: Wildlife sightings and conservation reports are scattered across various platforms, making it difficult to aggregate data and identify trends.
+- Inefficient communication: Stakeholders lack a unified platform to communicate and collaborate, leading to duplicated efforts and missed opportunities.
+- Limited accessibility: Tourists and volunteers often struggle to find accurate information about park visits and conservation activities.
+Proposed Solution
+WildlifeConnect addresses these issues by providing:
+- Centralized reporting: A unified platform for reporting wildlife sightings and conservation activities.
+- Collaborative environment: Forums and community features to facilitate communication and collaboration between stakeholders.
+- Accessible information: Easy-to-navigate booking systems and information about parks and events.
 
-
-Features
-User authentication and role management (volunteer, researcher, tourist)
-Report uploads and management
-Community forums
-Event creation and management
-Requirements
-Python 3.10 or later
-Django 4.0 or later
-PostgreSQL or SQLite
-Git
-Installation
+Functional and Non-Functional Requirements
+Functional Requirements
+- User authentication and authorization
+- Wildlife sighting reporting
+- Park visit booking system
+- Community forums
+- Donation system
+- Event management
+Non-Functional Requirements
+- User-friendly interface
+- Responsive design
+- Secure data handling
+- High availability and reliability
+Actors and Processes
+Actors
+- Volunteers: Report wildlife sightings, participate in forums, and book park visits.
+- Researchers: Access aggregated data, participate in forums, and manage events.
+- Tourists: Book park visits, donate to conservation efforts, and participate in community activities.
+Processes
+1. User Registration: Users sign up and choose their role (Volunteer, Researcher, Tourist).
+2. Report Submission: Volunteers and researchers report wildlife sightings.
+3. Booking: Tourists and volunteers book visits to parks.
+4. Community Interaction: All users participate in forums and community activities.
+Setup Instructions
+Prerequisites
+- Python 3.x
+- Django
+- Git
+Steps to Set Up
 1. Clone the Repository
-
-git clone https://github.com/yourusername/WildlifeConnect.git
-cd WildlifeConnect
-2. Create and Activate a Virtual Environment
-
-python -m venv env
-source env/bin/activate   # On Windows use `env\Scripts\activate`
+```bash
+git clone https://github.com/your-username/wildlifeconnect.git
+cd wildlifeconnect
+```
+2. Create and Activate Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
+```
 3. Install Dependencies
-
+```bash
 pip install -r requirements.txt
-4. Set Up the Database
-Using PostgreSQL
-Install PostgreSQL and create a new database and user.
-Update the DATABASES setting in wildlifeconnect/settings.py to match your database configuration.
-Using SQLite (default)
-No additional configuration is needed. The project is set up to use SQLite by default.
-
-5. Apply Migrations
-
+```
+4. Apply Migrations
+```bash
 python manage.py migrate
-6. Create a Superuser
-
-python manage.py createsuperuser
-7. Collect Static Files
-
-python manage.py collectstatic
-8. Run the Development Server
-
+```
+5. Run the Server
+```bash
 python manage.py runserver
-Visit http://127.0.0.1:8000 in your web browser to see the application running.
-
-Configuration
-Environment Variables
-Create a .env file in the root directory of your project and add the following environment variables:
-
-SECRET_KEY=your_secret_key
-DEBUG=True
-ALLOWED_HOSTS=127.0.0.1, .localhost
-Settings
-You can customize additional settings in wildlifeconnect/settings.py as needed.
-
+```
+6. Access the Application
+Open your web browser and go to `http://127.0.0.1:8000`
 Usage
-Creating and Managing Users
-Sign up for a new account at http://127.0.0.1:8000/signup.
-Log in with your account at http://127.0.0.1:8000/login.
-Navigate the site using the navigation menu to upload reports, participate in forums, and manage events.
-Admin Interface
-Access the admin interface at http://127.0.0.1:8000/admin with the superuser credentials you created earlier. Here you can manage users, reports, and other data.
-
+- Sign Up: Create an account by choosing your role (Volunteer, Researcher, Tourist).
+- Login: Access your dashboard after logging in.
+- Report Sightings: Submit wildlife sightings and view reports.
+- Book Visits: Schedule visits to parks and view available slots.
+- Participate in Forums: Join community discussions and share insights.
 Contributing
-We welcome contributions! Please follow these steps:
-
-Fork the repository.
-Create a new branch for your feature or bug fix.
-Commit your changes and push your branch to your fork.
-Create a pull request detailing your changes.
+We welcome contributions! 
