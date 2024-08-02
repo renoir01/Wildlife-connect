@@ -84,7 +84,7 @@ Steps to Set Up
 
 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/wildlifeconnect.git
+git clone https://github.com/renoir01/wildlife=connect.git
 cd wildlifeconnect
 ```
 2. Create and Activate Virtual Environment
